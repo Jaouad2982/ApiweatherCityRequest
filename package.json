@@ -1,0 +1,21 @@
+{
+  "name": "fetchapi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "css-loader": "^7.1.4",
+    "style-loader": "^4.0.0",
+    "webpack-dev-server": "^5.2.5"
+  },
+  "dependencies": {
+    "webpack": "^5.108.0",
+    "webpack-cli": "^6.0.1"
+  }
+}

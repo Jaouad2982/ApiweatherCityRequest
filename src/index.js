@@ -1,3 +1,4 @@
+import "./style.css";
 const container = document.querySelector(".container");
 const city = document.getElementById("city");
 btn.addEventListener("click", function (e) {
