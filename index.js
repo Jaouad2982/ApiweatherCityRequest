@@ -1,20 +1,3 @@
-console.log("fetch api");
-const city = document.getElementById("city");
-const btn = document.getElementById("btn");
-console.log(btn);
-console.log(city);
-const divBlock = document.createElement("div");
-const divInfo = document.createElement("div");
-const divDay = document.createElement("div");
-divBlock.classList.add("divBlockCss");
-divDay.classList.add("divDay");
-const paragraph = document.createElement("p");
-const container = document.querySelector(".container");
-divBlock.append(paragraph);
-divBlock.append(divInfo);
-divBlock.append(divDay);
-container.appendChild(divBlock);
-
 btn.addEventListener("click", function (e) {
   e.preventDefault();
   let cityInput = encodeURIComponent(city.value);
@@ -26,10 +9,40 @@ btn.addEventListener("click", function (e) {
     })
 
     .then((response) => {
-      console.log(response);
+      const {
+        address,
+        currentConditions,
+        days,
+        description,
+        latitude,
+        longitude,
+      } = { ...response };
+      const container = document.querySelector(".container");
+      const divBlock = document.createElement("div");
+      const paragraph = document.createElement("p");
+      const lat = document.createElement("p");
+      const long = document.createElement("p");
+      paragraph.textContent = address;
+      lat.textContent = latitude;
+      long.textContent = longitude;
+      divBlock.append(paragraph);
+      divBlock.append(lat);
+      divBlock.append(long);
+      container.append(divBlock);
+      console.log(currentConditions);
+      for (const [key, val] of Object.entries(currentConditions)) {
+        const ulList = document.createElement("ul");
+        const liList = document.createElement("li");
+        const liKey = document.createElement("li");
+        liList.textContent = key;
+        liKey.textContent = val;
+        ulList.appendChild(liList);
+        ulList.appendChild(liKey);
+        ulList.classList.add("ulClass");
+        divBlock.append(ulList);
+        console.log(val, "====", key);
+      }
     })
     .catch((err) => console.log(err));
   city.value = "";
 });
-
-//https://visualcrossing.com[CITY_NAME]?key=QU5HL3GNEYWVZ4U4N7AZDRS6C

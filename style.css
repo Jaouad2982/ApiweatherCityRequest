@@ -13,3 +13,18 @@
 .divDay {
   color: rgb(32, 65, 65);
 }
+
+.ulClass {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  list-style: none;
+  border-left: 6px solid rgb(238, 238, 29);
+  margin-bottom: 14px;
+  padding: 24px;
+  background-color: rgb(248, 243, 243);
+  border-radius: 5px;
+}
